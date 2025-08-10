@@ -1,0 +1,24 @@
+{
+  "name": "postman-mcp-generator-mcp",
+  "version": "1.0.0",
+  "description": "A simple MCP server with packaged tools",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "list-tools": "node index.js tools",
+    "start:http": "node mcpServer.js --streamable-http"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "commander": "^13.1.0",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "Postman, Inc.",
+  "license": "MIT"
+}

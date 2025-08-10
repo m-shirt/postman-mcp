@@ -1,0 +1,19 @@
+export const toolPaths = [
+  'supercommerce-api/backend-ap-is/list-payment-methods.js',
+  'supercommerce-api/backend-ap-is/list-order-status.js',
+  'supercommerce-api/backend-ap-is/list-cities.js',
+  'supercommerce-api/backend-ap-is/list-cancellation-reasons.js',
+  'supercommerce-api/backend-ap-is/view-order.js',
+  //'supercommerce-api/backend-ap-is/login.js',
+  'supercommerce-api/backend-ap-is/activate-promo-code.js',
+  'supercommerce-api/backend-ap-is/deactivate-customer.js',
+  'supercommerce-api/backend-ap-is/view-customer.js',
+  'supercommerce-api/backend-ap-is/deactivate-promo-code.js',
+  'supercommerce-api/backend-ap-is/activate-customer.js',
+  'supercommerce-api/backend-ap-is/view-promo-code.js',
+  'supercommerce-api/backend-ap-is/edit-order-status.js',
+  'supercommerce-api/backend-ap-is/list-products-for-create-order.js',
+  'supercommerce-api/backend-ap-is/get-promo-code-list.js',
+  'supercommerce-api/backend-ap-is/list-orders.js',
+  'supercommerce-api/backend-ap-is/list-customers.js'
+];
