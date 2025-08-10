@@ -1,14 +1,14 @@
 /**
- * Function to list cancellation reasons from the backend API.
+ * Function to list inventories from the backend API.
  *
- * @returns {Promise<Array>} - The list of cancellation reasons.
+ * @returns {Promise<Array>} - The list of inventories.
  */
 const executeFunction = async () => {
  const baseURL = process.env.SUPERCOMMERCE_BASE_URL;
   const token = process.env.SUPERCOMMERCE_API_API_KEY;
   try {
     // Construct the URL for the request
-    const url = `${baseURL}/api/admin/order_cancellation_reasons/`;
+    const url = `${baseURL}/api/admin/inventories/all`;
 
     // Set up headers for the request
     const headers = {
@@ -32,13 +32,13 @@ const executeFunction = async () => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Error listing cancellation reasons:', error);
-    return { error: 'An error occurred while listing cancellation reasons.' };
+    console.error('Error listing inventories:', error);
+    return { error: 'An error occurred while listing inventories.' };
   }
 };
 
 /**
- * Tool configuration for listing cancellation reasons from the backend API.
+ * Tool configuration for listing inventories from the backend API.
  * @type {Object}
  */
 const apiTool = {
@@ -46,8 +46,8 @@ const apiTool = {
   definition: {
     type: 'function',
     function: {
-      name: 'list_cancellation_reasons',
-      description: 'List cancellation reasons from the backend API.',
+      name: 'list_inventories',
+      description: 'List all inventories from the backend API.',
       parameters: {
         type: 'object',
         properties: {},

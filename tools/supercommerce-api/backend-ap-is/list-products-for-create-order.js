@@ -3,12 +3,12 @@
  *
  * @param {Object} args - Arguments for the product listing.
  * @param {string} args.keyword - The search keyword for products.
- * @param {string} args.user_id - The ID of the user.
- * @param {string} args.address_id - The ID of the address.
+ * @param {string} args.user_id - The user ID for the request.
+ * @param {string} args.address_id - The address ID for the request.
  * @returns {Promise<Array>} - The list of products for creating an order.
  */
 const executeFunction = async ({ keyword, user_id, address_id }) => {
-  const baseURL = process.env.SUPERCOMMERCE_BASE_URL;
+ const baseURL = process.env.SUPERCOMMERCE_BASE_URL;
   const token = process.env.SUPERCOMMERCE_API_API_KEY;
   try {
     // Construct the URL with query parameters
@@ -41,7 +41,7 @@ const executeFunction = async ({ keyword, user_id, address_id }) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Error listing products:', error);
+    console.error('Error listing products for order creation:', error);
     return { error: 'An error occurred while listing products.' };
   }
 };
@@ -66,11 +66,11 @@ const apiTool = {
           },
           user_id: {
             type: 'string',
-            description: 'The ID of the user.'
+            description: 'The user ID for the request.'
           },
           address_id: {
             type: 'string',
-            description: 'The ID of the address.'
+            description: 'The address ID for the request.'
           }
         },
         required: ['keyword', 'user_id', 'address_id']

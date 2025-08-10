@@ -30,7 +30,7 @@ const executeFunction = async ({
   per_page = 20,
   page = 1
 }) => {
-  const baseURL = process.env.SUPERCOMMERCE_BASE_URL;
+ const baseURL = process.env.SUPERCOMMERCE_BASE_URL;
   const token = process.env.SUPERCOMMERCE_API_API_KEY;
 
   const url = `${baseURL}/api/admin/v2/orders`;

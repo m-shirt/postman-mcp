@@ -1,16 +1,16 @@
 /**
- * Function to view a customer by ID.
+ * Function to get product details by ID.
  *
- * @param {Object} args - Arguments for the customer view.
- * @param {string} args.id - The ID of the customer to view.
- * @returns {Promise<Object>} - The result of the customer view.
+ * @param {Object} args - Arguments for the product details request.
+ * @param {string} args.id - The ID of the product to retrieve details for.
+ * @returns {Promise<Object>} - The result of the product details request.
  */
 const executeFunction = async ({ id }) => {
  const baseURL = process.env.SUPERCOMMERCE_BASE_URL;
   const token = process.env.SUPERCOMMERCE_API_API_KEY;
   try {
-    // Construct the URL for the request
-    const url = `${baseURL}/api/admin/customers/${id}`;
+    // Construct the URL for the product details request
+    const url = `${baseURL}/api/admin/products/${id}`;
 
     // Set up headers for the request
     const headers = {
@@ -34,13 +34,13 @@ const executeFunction = async ({ id }) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Error viewing customer:', error);
-    return { error: 'An error occurred while viewing the customer.' };
+    console.error('Error getting product details:', error);
+    return { error: 'An error occurred while getting product details.' };
   }
 };
 
 /**
- * Tool configuration for viewing a customer.
+ * Tool configuration for getting product details by ID.
  * @type {Object}
  */
 const apiTool = {
@@ -48,14 +48,14 @@ const apiTool = {
   definition: {
     type: 'function',
     function: {
-      name: 'view_customer',
-      description: 'View a customer by ID.',
+      name: 'get_product_details',
+      description: 'Get details of a product by its ID.',
       parameters: {
         type: 'object',
         properties: {
           id: {
             type: 'string',
-            description: 'The ID of the customer to view.'
+            description: 'The ID of the product to retrieve details for.'
           }
         },
         required: ['id']

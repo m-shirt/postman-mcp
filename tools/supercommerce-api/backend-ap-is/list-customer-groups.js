@@ -1,14 +1,14 @@
 /**
- * Function to list cancellation reasons from the backend API.
+ * Function to list customer groups for product pricing.
  *
- * @returns {Promise<Array>} - The list of cancellation reasons.
+ * @returns {Promise<Array>} - The list of customer groups.
  */
 const executeFunction = async () => {
  const baseURL = process.env.SUPERCOMMERCE_BASE_URL;
   const token = process.env.SUPERCOMMERCE_API_API_KEY;
   try {
-    // Construct the URL for the request
-    const url = `${baseURL}/api/admin/order_cancellation_reasons/`;
+    // Construct the URL for the API request
+    const url = `${baseURL}/api/admin/customer_groups/for-product-pricing`;
 
     // Set up headers for the request
     const headers = {
@@ -32,13 +32,13 @@ const executeFunction = async () => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Error listing cancellation reasons:', error);
-    return { error: 'An error occurred while listing cancellation reasons.' };
+    console.error('Error listing customer groups:', error);
+    return { error: 'An error occurred while listing customer groups.' };
   }
 };
 
 /**
- * Tool configuration for listing cancellation reasons from the backend API.
+ * Tool configuration for listing customer groups.
  * @type {Object}
  */
 const apiTool = {
@@ -46,8 +46,8 @@ const apiTool = {
   definition: {
     type: 'function',
     function: {
-      name: 'list_cancellation_reasons',
-      description: 'List cancellation reasons from the backend API.',
+      name: 'list_customer_groups',
+      description: 'List customer groups for product pricing.',
       parameters: {
         type: 'object',
         properties: {},

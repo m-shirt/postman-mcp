@@ -2,7 +2,12 @@ import Ajv from "ajv";
 import addFormats from "ajv-formats";
 import { discoverTools } from "./lib/tools.js";
 
-const ajv = new Ajv({ strict: true, allErrors: true, validateSchema: true });
+const ajv = new Ajv({ 
+  strict: true, 
+  allErrors: true, 
+  validateSchema: true,
+  allowUnionTypes: true // Add this line
+});
 addFormats(ajv);
 
 // Utility function to recursively check all array types have 'items'

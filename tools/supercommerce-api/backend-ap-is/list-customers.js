@@ -26,7 +26,7 @@ const executeFunction = async ({
   page = '1',
   admin_approved = ''
 }) => {
-  const baseURL = process.env.SUPERCOMMERCE_BASE_URL;
+ const baseURL = process.env.SUPERCOMMERCE_BASE_URL;
   const token = process.env.SUPERCOMMERCE_API_API_KEY;
   
   try {

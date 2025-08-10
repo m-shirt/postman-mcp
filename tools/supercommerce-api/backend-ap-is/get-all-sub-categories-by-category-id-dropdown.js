@@ -1,14 +1,16 @@
 /**
- * Function to list cancellation reasons from the backend API.
+ * Function to get all sub-categories by category ID.
  *
- * @returns {Promise<Array>} - The list of cancellation reasons.
+ * @param {Object} args - Arguments for the request.
+ * @param {string} args.id - The ID of the category to retrieve sub-categories for.
+ * @returns {Promise<Array>} - The list of sub-categories for the specified category.
  */
-const executeFunction = async () => {
+const executeFunction = async ({ id }) => {
  const baseURL = process.env.SUPERCOMMERCE_BASE_URL;
   const token = process.env.SUPERCOMMERCE_API_API_KEY;
   try {
     // Construct the URL for the request
-    const url = `${baseURL}/api/admin/order_cancellation_reasons/`;
+    const url = `${baseURL}/api/admin/v2/dropdown/categories/${id}/subcategories`;
 
     // Set up headers for the request
     const headers = {
@@ -32,13 +34,13 @@ const executeFunction = async () => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Error listing cancellation reasons:', error);
-    return { error: 'An error occurred while listing cancellation reasons.' };
+    console.error('Error getting sub-categories:', error);
+    return { error: 'An error occurred while getting sub-categories.' };
   }
 };
 
 /**
- * Tool configuration for listing cancellation reasons from the backend API.
+ * Tool configuration for getting sub-categories by category ID.
  * @type {Object}
  */
 const apiTool = {
@@ -46,12 +48,17 @@ const apiTool = {
   definition: {
     type: 'function',
     function: {
-      name: 'list_cancellation_reasons',
-      description: 'List cancellation reasons from the backend API.',
+      name: 'get_subcategories_by_category_id',
+      description: 'Get all sub-categories by category ID.',
       parameters: {
         type: 'object',
-        properties: {},
-        required: []
+        properties: {
+          id: {
+            type: 'string',
+            description: 'The ID of the category to retrieve sub-categories for.'
+          }
+        },
+        required: ['id']
       }
     }
   }

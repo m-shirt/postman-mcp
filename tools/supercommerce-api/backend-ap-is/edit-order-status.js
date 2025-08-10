@@ -11,7 +11,7 @@
  * @returns {Promise<Object>} - The result of the order status edit.
  */
 const executeFunction = async ({ status_notes, cancellation_text, cancellation_id, order_ids, state_id, notify_customer }) => {
-  const baseURL = process.env.SUPERCOMMERCE_BASE_URL;
+ const baseURL = process.env.SUPERCOMMERCE_BASE_URL;
   const token = process.env.SUPERCOMMERCE_API_API_KEY;
   try {
     const url = `${baseURL}/api/admin/orders/bulk_change_state`;

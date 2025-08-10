@@ -232,3 +232,18 @@ POST http://localhost:3001/api/mcp
       }
     }
   }
+
+# STDIO
+node mcpServer.js
+
+# sse
+node localSseTest.js
+GET http://localhost:3001/sse
+
+POST http://localhost:3001/messages?sessionId={{sessionId}}
+body {"method":"tools/list","jsonrpc":"2.0","id":1}
+
+
+npm run start:http // will start the Streamable HTTPS server
+npm run start:sse // will start the SSE server
+npm run start:stdio // will start the stdio server

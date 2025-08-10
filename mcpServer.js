@@ -217,6 +217,8 @@ async function setupStdio(tools) {
 
   const transport = new StdioServerTransport();
   await server.connect(transport);
+      console.log(`[Stdio Server] is running`);
+
 }
 
 async function run() {

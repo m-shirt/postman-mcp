@@ -6,7 +6,7 @@
  * @returns {Promise<Object>} - The result of the promo code retrieval.
  */
 const executeFunction = async ({ id }) => {
-  const baseURL = process.env.SUPERCOMMERCE_BASE_URL;
+ const baseURL = process.env.SUPERCOMMERCE_BASE_URL;
   const token = process.env.SUPERCOMMERCE_API_API_KEY;
   try {
     // Construct the URL for the request
