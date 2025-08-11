@@ -1,7 +1,9 @@
 {
-  "/_app": "pages/_app.js",
+  "/api/llm": "pages/api/llm.js",
+  "/api/mcp": "pages/api/mcp.js",
+  "/": "pages/index.html",
   "/_error": "pages/_error.js",
+  "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/api/llm": "pages/api/llm.js"
+  "/404": "pages/404.html"
 }
