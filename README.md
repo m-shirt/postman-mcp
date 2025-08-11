@@ -247,3 +247,5 @@ body {"method":"tools/list","jsonrpc":"2.0","id":1}
 npm run start:http // will start the Streamable HTTPS server
 npm run start:sse // will start the SSE server
 npm run start:stdio // will start the stdio server
+
+https://postman-mcp.vercel.app/api/mcp
