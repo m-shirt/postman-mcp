@@ -249,3 +249,5 @@ npm run start:sse // will start the SSE server
 npm run start:stdio // will start the stdio server
 
 https://postman-mcp.vercel.app/api/mcp
+
+npm run dev
