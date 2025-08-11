@@ -4,7 +4,10 @@ function CollapsibleCodeBlock({ title, code }) {
   const [open, setOpen] = useState(false);
   return (
     <div style={{ marginBottom: 12 }}>
-      <button onClick={() => setOpen(!open)} style={{ cursor: 'pointer', fontWeight: 'bold' }}>
+      <button
+        onClick={() => setOpen(!open)}
+        style={{ cursor: 'pointer', fontWeight: 'bold' }}
+      >
         {open ? '▼' : '▶'} {title}
       </button>
       {open && (
@@ -62,9 +65,12 @@ export default function Home() {
           role: 'system',
           content: (
             <>
-              <div>MCP server offers {data.toolsList.length} tool(s): {data.toolsList.join(', ')}</div>
+              <div>
+                MCP server offers {data.toolsList.length} tool(s):{' '}
+                {data.toolsList.join(', ')}
+              </div>
               <CollapsibleCodeBlock title="MCP tools/list Request" code={data.toolsListRaw} />
-              <CollapsibleCodeBlock title="MCP tools/list Response" code={data.toolsListRaw} />
+              <CollapsibleCodeBlock title="MCP tools/list Response" code={data.toolsListResponse} />
               <div style={{ marginTop: 10, fontWeight: 'bold' }}>
                 You can now type the tool name to call it.
               </div>
@@ -110,7 +116,9 @@ export default function Home() {
         role: 'assistant',
         content: (
           <>
-            <div><b>Called Tool:</b> {data.chosenTool}</div>
+            <div>
+              <b>Called Tool:</b> {data.chosenTool}
+            </div>
             <CollapsibleCodeBlock title="MCP tools/call Request" code={data.toolsCallRequestRaw} />
             <CollapsibleCodeBlock title="MCP tools/call Response" code={data.toolsCallResponseRaw} />
             <div style={{ marginTop: 10 }}>{data.summaryMessage}</div>
