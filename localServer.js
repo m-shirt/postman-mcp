@@ -1,6 +1,6 @@
 // localTest.js
 import express from "express";
-import handler from "./api/mcp.js"; // Your Vercel API handler
+import handler from "./pages/api/mcp.js"; // Your Vercel API handler
 
 const app = express();
 app.use(express.json());

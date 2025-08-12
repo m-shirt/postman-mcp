@@ -136,7 +136,7 @@ async function setupStreamableHttp(tools) {
   const port = process.env.PORT || 3001;
   app.listen(port, () => {
     console.log(
-      `[Streamable HTTP Server] running at http://127.0.0.1:${port}/mcp`
+      `[Streamable HTTP Server] running at http://localhost:${port}/mcp`
     );
   });
 }
