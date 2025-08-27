@@ -92,6 +92,13 @@ async function setupStreamableHttp(tools) {
   app.use(express.json());
 
   app.post('/mcp', async (req, res) => {
+      res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
     try {
       const server = new Server(
         {
@@ -147,6 +154,13 @@ async function setupSSE(tools) {
   const servers = {};
 
   app.get('/sse', async (_req, res) => {
+          res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
     const server = new Server(
       {
         name: SERVER_NAME,
@@ -175,6 +189,13 @@ async function setupSSE(tools) {
   });
 
   app.post('/messages', async (req, res) => {
+          res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
     const sessionId = req.query.sessionId;
     const transport = transports[sessionId];
     const server = servers[sessionId];
